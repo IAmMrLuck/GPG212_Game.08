@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class SkeletonMovement : MonoBehaviour
+public class SkeleChase : MonoBehaviour
 
     // FOLLOW STATE
     // Once the player gets a bone from the Skeleton
@@ -16,6 +16,7 @@ public class SkeletonMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     private NavMeshAgent skelNavMeshAgent;
     
+
 
     private void Start()
     {
