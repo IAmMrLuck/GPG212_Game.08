@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class DogCharacter : MonoBehaviour
 {
+
+    /// <summary>
+    /// 
+    /// this script came from CHATGPT
+    /// 
+    /// </summary>
     public float moveSpeed = 5f;
     public float rotationSpeed = 10f;
     public float jumpForce = 8f;
@@ -15,9 +21,14 @@ public class DogCharacter : MonoBehaviour
     private CharacterController characterController;
     private Vector3 moveDirection;
 
+    public static int bonePoints;
+
+
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
+        bonePoints = 0;
+
     }
 
     private void Update()
