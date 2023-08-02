@@ -2387,9 +2387,6 @@ GameObject:
   - component: {fileID: 764972761}
   - component: {fileID: 764972762}
   - component: {fileID: 764972763}
-  - component: {fileID: 764972764}
-  - component: {fileID: 764972765}
-  - component: {fileID: 764972766}
   m_Layer: 0
   m_Name: Skeleton Model
   m_TagString: Skeletons
@@ -2492,49 +2489,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &764972764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6103789350848208370}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8f7a996ef5949244b92726a060d1c67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dogPlayer: {fileID: 0}
-  moveSpeed: 5
---- !u!114 &764972765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6103789350848208370}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2befa2ef0a376bc488daefe7731abd53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minRoamingRange: 12
-  maxRoamingRange: 15
-  moveSpeed: 5
---- !u!114 &764972766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6103789350848208370}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a42da356c12a2c4ebed8394a15d68de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dogPlayer: {fileID: 0}
-  distToPlayer: 0
 --- !u!1 &6138652498830210266
 GameObject:
   m_ObjectHideFlags: 0

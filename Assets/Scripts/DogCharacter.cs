@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class DogCharacter : MonoBehaviour
@@ -7,48 +8,42 @@ public class DogCharacter : MonoBehaviour
 
     /// <summary>
     /// 
-    /// this script came from CHATGPT
+    /// most this script came from CHATGPT
     /// 
     /// </summary>
+    // Movement Vairables
     public float moveSpeed = 5f;
     public float rotationSpeed = 10f;
-    public float jumpForce = 8f;
-    public Transform groundCheck;
-    public LayerMask groundLayer;
-    public float groundDistance = 0.2f;
-
-    private bool isGrounded;
     private CharacterController characterController;
     private Vector3 moveDirection;
 
+    // Static Variable used in points system
     public static int bonePoints;
+
+    // UI Variables
+    [SerializeField] private Image boneImage;
 
 
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
         bonePoints = 0;
+        boneImage.enabled = false;
 
     }
 
     private void Update()
     {
-        // Check if the player is grounded
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundLayer);
+        Debug.Log(bonePoints + " Bone Points ");
 
-        // Get input for movement and rotation
+        // movement
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
         Vector3 inputDirection = new Vector3(horizontalInput, 0f, verticalInput).normalized;
-
-        // Calculate move direction relative to the camera
         moveDirection = Camera.main.transform.forward * inputDirection.z + Camera.main.transform.right * inputDirection.x;
-        moveDirection.y = 0f; // Ensure the player stays on the ground
-
-        // Move the player
+        moveDirection.y = 0f; 
         characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
 
-        // Rotate the player in the direction of movement
         if (inputDirection != Vector3.zero)
         {
             float targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
@@ -56,16 +51,24 @@ public class DogCharacter : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, rotation, 0f);
         }
 
-        // Handle jumping
-        if (isGrounded && Input.GetButtonDown("Jump"))
+        // collecting bones for points
+        
+        if(bonePoints > 1.1)
         {
-            moveDirection.y = jumpForce;
+            bonePoints = 1;
+        }
+        if(bonePoints < 0)
+        {
+            bonePoints = 0;
         }
 
-        // Apply gravity
-        if (!isGrounded)
+        if (bonePoints == 1)
         {
-            moveDirection.y -= 9.81f * Time.deltaTime;
+            boneImage.enabled = true;
+        }
+        if(bonePoints == 0)
+        {
+            boneImage.enabled = false;
         }
     }
 }

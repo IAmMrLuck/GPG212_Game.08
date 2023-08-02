@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+
 
 public class SkeleRoam : SkeleBaseState
 {
@@ -9,7 +7,7 @@ public class SkeleRoam : SkeleBaseState
         : base(currentContext, skeleStateFactory) { }
 
     public override void EnterState() {
-        Debug.Log("Hello from the Roaming state");
+        Debug.Log("//===========================Hello from the Roaming state==========================//");
         UpdateState();
 
     }
@@ -18,14 +16,14 @@ public class SkeleRoam : SkeleBaseState
     {
         if (!ctx.HasDestination)
         {
-            Debug.Log("Has Destination is " + ctx.HasDestination);
+            //Debug.Log("Has Destination is " + ctx.HasDestination);
             FindDestination();
         }
 
         else
         {
             GoToDesitination();
-            Debug.Log("Else'd");
+            //Debug.Log("Else'd");
 
         }
 
@@ -33,8 +31,7 @@ public class SkeleRoam : SkeleBaseState
     }
 
     public override void CheckSwitchState() {
-
-        Debug.Log("Switch State Checked");
+//       Debug.Log("Switch State Checked");
 
         float currentDist = Vector3.Distance(ctx.SkeleGO.transform.position, ctx.DogPlayer.transform.position);
 
@@ -43,7 +40,6 @@ public class SkeleRoam : SkeleBaseState
             SwitchStates(factory.Flee());
         }
 
-        else UpdateState();
         
     }
 
@@ -57,21 +53,21 @@ public class SkeleRoam : SkeleBaseState
     {
         float roamingRange = Random.Range(ctx.MinRoamingRange, ctx.MaxRoamingRange);
 
-        Debug.Log("Distance was " + roamingRange);
+      //  Debug.Log("Distance was " + roamingRange);
         ctx.Destination = ctx.SkeleGO.transform.position + Random.insideUnitSphere * roamingRange;
 
         ctx.HasDestination = true;
-        Debug.Log("Has Destination is " + ctx.HasDestination);
+      //  Debug.Log("Has Destination is " + ctx.HasDestination);
     }
+
 
     private void GoToDesitination()
     {
-        Debug.Log("Desitnation is " + ctx.Destination);
+      //  Debug.Log("Desitnation is " + ctx.Destination);
         
         ctx.SkelNavMeshAgent.SetDestination(ctx.Destination);
-        Debug.Log("Did Go To destination");
-
+       // Debug.Log("Did Go To destination");
         ctx.HasDestination = false;
-        Debug.Log("Has Destination is now " + ctx.HasDestination);
+       // Debug.Log("Has Destination is now " + ctx.HasDestination);
     }
 }
