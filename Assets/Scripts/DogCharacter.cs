@@ -19,6 +19,7 @@ public class DogCharacter : MonoBehaviour
 
     // Static Variable used in points system
     public static int bonePoints;
+    private int buryPoints;
 
     // UI Variables
     [SerializeField] private Image boneImage;
@@ -52,6 +53,7 @@ public class DogCharacter : MonoBehaviour
         }
 
         // collecting bones for points
+        // this also ensures that the player can never have more or less than the required amount of points
         
         if(bonePoints > 1.1)
         {
@@ -69,6 +71,16 @@ public class DogCharacter : MonoBehaviour
         if(bonePoints == 0)
         {
             boneImage.enabled = false;
+        }
+    }
+
+    public void AddBuryPoint()
+    {
+        if (bonePoints > 0)
+        {
+            bonePoints--; // Subtract one bonePoint
+            buryPoints++; // Add one buryPoint
+            Debug.Log("Bury point added. Total bury points: " + buryPoints);
         }
     }
 }

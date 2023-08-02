@@ -131,9 +131,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   rotationSpeed: 10
-  jumpForce: 8
-  groundCheck: {fileID: 7380696564862058156}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  groundDistance: 0.2
+  boneImage: {fileID: 0}

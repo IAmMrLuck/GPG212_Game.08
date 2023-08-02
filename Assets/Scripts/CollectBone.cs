@@ -16,8 +16,6 @@ public class CollectBone : MonoBehaviour
         {
             Debug.Log("Trigger");
             DogCharacter.bonePoints++;
-        }
-
-      
+        } 
     }
 }
