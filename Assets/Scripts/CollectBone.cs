@@ -7,7 +7,7 @@ public class CollectBone : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("You have " + DogCharacter.bonePoints + " Bone Points");
+        //Debug.Log("You have " + DogCharacter.bonePoints + " Bone Points");
     }
 
     private void OnTriggerEnter(Collider collsion)
