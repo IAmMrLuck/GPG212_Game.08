@@ -8,7 +8,7 @@ public class SkeleRoam : SkeleBaseState
 
     public override void EnterState() {
         Debug.Log("//===========================Hello from the Roaming state==========================//");
-        UpdateState();
+        //UpdateState();
 
     }
 
@@ -63,11 +63,18 @@ public class SkeleRoam : SkeleBaseState
 
     private void GoToDesitination()
     {
-      //  Debug.Log("Desitnation is " + ctx.Destination);
+        Debug.Log("Desitnation is " + ctx.Destination);
         
         ctx.SkelNavMeshAgent.SetDestination(ctx.Destination);
-       // Debug.Log("Did Go To destination");
+        //ctx.StartCoroutine(ctx.MoveToDestination());
         ctx.HasDestination = false;
-       // Debug.Log("Has Destination is now " + ctx.HasDestination);
+
+        //Debug.Log("SkelePosition " + ctx.SkeleGO.transform.position);
+        //if (ctx.SkeleGO.transform.position.x != ctx.Destination.x) return;
+        //if (ctx.SkeleGO.transform.position.z != ctx.Destination.z) return;
+
+        //Debug.Log("Did Go To destination");
+
+        // Debug.Log("Has Destination is now " + ctx.HasDestination);
     }
 }

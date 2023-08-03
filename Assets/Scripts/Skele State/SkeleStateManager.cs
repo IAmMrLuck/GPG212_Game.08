@@ -1,6 +1,8 @@
 
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEngine.Rendering.DebugUI;
 
 public class SkeleStateManager : MonoBehaviour
 {
@@ -66,5 +68,20 @@ public class SkeleStateManager : MonoBehaviour
         currentState.UpdateState();
     }
 
-   
+    //public void StartMovementCoroutine()
+    //{
+    //    StartCoroutine(MoveToDestination());
+    //}
+
+    //public IEnumerator MoveToDestination()
+    //{
+    //    while ()
+    //    {
+    //        yield return null;
+    //    }
+
+    //    _hasDestination = false;
+    //}
+
+
 }
