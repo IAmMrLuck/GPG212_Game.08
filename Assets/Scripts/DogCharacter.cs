@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class DogCharacter : MonoBehaviour
@@ -40,7 +41,7 @@ public class DogCharacter : MonoBehaviour
 
     private void Update()
     {
-
+        EndGame();
         // movement
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
@@ -89,6 +90,13 @@ public class DogCharacter : MonoBehaviour
         }
     }
 
+    private void EndGame()
+    {
+        if(buryPoints >= 10)
+        {
+            SceneManager.LoadScene("WinScene");
+        }
+    }
 
         // Call this method whenever you want to increase the scor
 
