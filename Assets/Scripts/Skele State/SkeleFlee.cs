@@ -32,6 +32,12 @@ public class SkeleFlee : SkeleBaseState
         {
             SwitchStates(factory.Roam());
         }
+
+        if(DogCharacter.bonePoints == 1)
+        {
+            SwitchStates(factory.Chase());
+
+        }
     }
 
 }

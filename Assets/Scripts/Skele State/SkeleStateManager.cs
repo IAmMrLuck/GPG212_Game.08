@@ -37,7 +37,7 @@ public class SkeleStateManager : MonoBehaviour
     public NavMeshAgent SkelNavMeshAgent { get { return _skelNavMeshAgent; }}
     public bool HasDestination { get { return _hasDestination; } set { _hasDestination = value ; } }
     public Vector3 Destination { get { return _destination; } set { _destination = value; } }
-    public Transform DogTarget { get { return _dogTarget; } set { _dogTarget = value; } }
+    public Transform DogTarget { get { return _dogTarget; }  }
     public GameObject DogPlayer { get { return _dogPlayer; } set { _dogPlayer = value; } }
     public GameObject SkeleGO { get { return _skeleGO; } set { _skeleGO = value; } }
     public float DistToPlayer { get { return _distToPlayer; } set { _distToPlayer = value; } }

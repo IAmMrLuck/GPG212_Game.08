@@ -1,3 +1,4 @@
+using UnityEngine;
 
 
 public class SkeleChase : SkeleBaseState
@@ -8,22 +9,25 @@ public class SkeleChase : SkeleBaseState
 
     public override void EnterState() 
     {
-        DogsDesitination();
+        Debug.Log("//===========================Hello from the Chase  state==========================//");
 
     }
 
     public override void UpdateState()
     {
+        DogsDesitination();
 
+        CheckSwitchState();
     }
 
     public override void CheckSwitchState() 
     {
-        
+        if (DogCharacter.bonePoints <1)
+        {
+            SwitchStates(factory.Roam());
+        }
     }
 
-
- 
     public override void ExitState()
     {
 
