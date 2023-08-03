@@ -63,7 +63,6 @@ public class SkeleRoam : SkeleBaseState
 
     private void GoToDesitination()
     {
-        Debug.Log("Desitnation is " + ctx.Destination);
         
         ctx.SkelNavMeshAgent.SetDestination(ctx.Destination);
         //ctx.StartCoroutine(ctx.MoveToDestination());

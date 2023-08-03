@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 public class DogCharacter : MonoBehaviour
 {
 
     /// <summary>
     /// 
-    /// most this script came from CHATGPT
+    /// most the movement portion of this script came from CHATGPT
+    /// 
+    /// the rest is me
     /// 
     /// </summary>
     // Movement Vairables
@@ -17,9 +20,11 @@ public class DogCharacter : MonoBehaviour
     private CharacterController characterController;
     private Vector3 moveDirection;
 
-    // Static Variable used in points system
+    //  Variable used in points system
     public static int bonePoints;
     private int buryPoints;
+    [SerializeField] private TMP_Text scoreText;
+
 
     // UI Variables
     [SerializeField] private Image boneImage;
@@ -35,7 +40,6 @@ public class DogCharacter : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(bonePoints + " Bone Points ");
 
         // movement
         float horizontalInput = Input.GetAxis("Horizontal");
@@ -80,8 +84,18 @@ public class DogCharacter : MonoBehaviour
         {
             bonePoints--; // Subtract one bonePoint
             buryPoints++; // Add one buryPoint
+            UpdateScoreText();
             Debug.Log("Bury point added. Total bury points: " + buryPoints);
         }
     }
+
+
+        // Call this method whenever you want to increase the scor
+
+        private void UpdateScoreText()
+        {
+            scoreText.text = buryPoints.ToString();
+        }
+    
 }
 
